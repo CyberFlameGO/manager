@@ -1,13 +1,13 @@
 import angular from 'angular';
 
-import kyc from './kyc';
+import kycIdentityForm from './kycIdentityForm';
 
 import routing from './sva-wallet.routing';
 
 const moduleName = 'ovhManagerTelecomTelephonySvaWallet';
 
 angular
-  .module(moduleName, ['ui.router', 'pascalprecht.translate', kyc])
+  .module(moduleName, ['ui.router', 'pascalprecht.translate', kycIdentityForm])
   .config(routing);
 
 export default moduleName;

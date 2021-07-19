@@ -2,7 +2,7 @@ import angular from 'angular';
 import '@uirouter/angularjs';
 import 'oclazyload';
 
-import svaWalletModule from './svaWallet';
+import svaWallet from './svaWallet';
 import billingAccount from './billingAccount';
 
 import './telecom-telephony.less';
@@ -10,12 +10,7 @@ import './telecom-telephony.less';
 const moduleName = 'ovhManagerTelecomTelephonyLazyLoading';
 
 angular
-  .module(moduleName, [
-    'ui.router',
-    'oc.lazyLoad',
-    billingAccount,
-    svaWalletModule,
-  ])
+  .module(moduleName, ['ui.router', 'oc.lazyLoad', billingAccount, svaWallet])
   .config(
     /* @ngInject */ ($stateProvider) => {
       $stateProvider
@@ -31,39 +26,14 @@ angular
           resolve: {
             breadcrumb: /* @ngInject */ ($translate) =>
               $translate.instant('telephony_breadcrumb'),
-
             isSvaWalletFeatureAvailable: /* @ngInject */ (
               TelephonySvaWalletService,
             ) => TelephonySvaWalletService.isFeatureAvailable(),
-
-            svaWallet: /* @ngInject */ (
-              $q,
-              isSvaWalletFeatureAvailable,
-              TelephonySvaWalletService,
-            ) =>
-              isSvaWalletFeatureAvailable
-                ? TelephonySvaWalletService.getSvaWallet().catch(() => false)
-                : $q.resolve(false),
-
             isSvaWalletValid: /* @ngInject */ (
-              isSvaWalletFeatureAvailable,
-              $q,
-              svaWallet,
               TelephonySvaWalletService,
-            ) => {
-              if (!isSvaWalletFeatureAvailable) {
-                return () => $q.when(false);
-              }
-              return TelephonySvaWalletService.isSvaWalletValid(svaWallet);
-            },
-
+            ) => () => TelephonySvaWalletService.isSvaWalletValid(),
             goToSvaWallet: /* @ngInject */ ($state) => () =>
               $state.go('telecom.telephony.billingAccount.svaWallet'),
-            meSchema: /* @ngInject */ ($http) =>
-              $http.get('/me.json').then(({ data: schema }) => schema),
-
-            countryEnum: /* @ngInject */ (meSchema) =>
-              meSchema.models['nichandle.CountryEnum'].enum,
           },
         })
         .state('telecom.telephony.index.**', {
