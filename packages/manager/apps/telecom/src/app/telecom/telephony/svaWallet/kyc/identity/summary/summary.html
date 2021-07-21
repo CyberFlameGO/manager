@@ -20,12 +20,12 @@
 <div class="oui-field oui-field_auto">
     <div class="oui-field__control">
         <span
-            data-ng-if="!$ctrl.svaWallet.company.reseller"
+            data-ng-if="$ctrl.svaWallet.company.reseller"
             data-translate="telephony_billingAccount_svaWallet_kyc_identity_type_pro"
         ></span>
 
         <span
-            data-ng-if="$ctrl.svaWallet.company.reseller"
+            data-ng-if="!$ctrl.svaWallet.company.reseller"
             data-translate="telephony_billingAccount_svaWallet_kyc_identity_type_reseller"
         ></span>
     </div>
@@ -96,10 +96,7 @@
     ></div>
 </div>
 
-<div
-    class="oui-field oui-field_auto"
-    data-ng-if="$ctrl.svaWallet.representative.addressOfResidence.streetNumberExtra"
->
+<div class="oui-field oui-field_auto">
     <div class="oui-field__header ng-scope">
         <label
             class="oui-field__label ng-binding"
@@ -138,10 +135,7 @@
     ></div>
 </div>
 
-<div
-    class="oui-field oui-field_auto"
-    data-ng-if="$ctrl.svaWallet.representative.addressOfResidence.addressExtra"
->
+<div class="oui-field oui-field_auto">
     <div class="oui-field__header ng-scope">
         <label
             class="oui-field__label ng-binding"
@@ -154,10 +148,7 @@
     ></div>
 </div>
 
-<div
-    class="oui-field oui-field_auto"
-    data-ng-if="$ctrl.svaWallet.representative.postcodeOfResidence"
->
+<div class="oui-field oui-field_auto">
     <div class="oui-field__header ng-scope">
         <label
             class="oui-field__label ng-binding"
@@ -170,10 +161,7 @@
     ></div>
 </div>
 
-<div
-    class="oui-field oui-field_auto"
-    data-ng-if="$ctrl.svaWallet.representative.addressOfResidence.cedex"
->
+<div class="oui-field oui-field_auto">
     <div class="oui-field__header ng-scope">
         <label
             class="oui-field__label ng-binding"
@@ -199,10 +187,7 @@
     ></div>
 </div>
 
-<div
-    class="oui-field oui-field_auto"
-    data-ng-if="$ctrl.svaWallet.representative.addressOfResidence.urbanDistrict"
->
+<div class="oui-field oui-field_auto">
     <div class="oui-field__header ng-scope">
         <label
             class="oui-field__label ng-binding"
@@ -346,6 +331,7 @@
         variant="link"
         icon-right="oui-icon-arrow-right"
         on-click="$ctrl.updateBankAccount()"
+        ng-if="$ctrl.isBankAccountEditable"
     >
         <span
             data-translate="telephony_billingAccount_svaWallet_kyc_summary_bankaccount_edit"
@@ -354,7 +340,6 @@
 </div>
 
 <h3
-    data-ng-if="$ctrl.svaWallet.company.beneficiaries.length < 4"
     data-translate="telephony_billingAccount_svaWallet_kyc_summary_beneficiaries_title"
 ></h3>
 

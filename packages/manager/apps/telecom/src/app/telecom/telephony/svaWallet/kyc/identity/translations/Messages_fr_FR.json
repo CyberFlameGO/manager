@@ -13,7 +13,7 @@
   "telephony_billingAccount_svaWallet_kyc_company_kind_ASSOCIATION": "Association",
   "telephony_billingAccount_svaWallet_kyc_company_kind_CRAFTSMAN": "Artisan",
   "telephony_billingAccount_svaWallet_kyc_company_kind_CSE": "Comité social et économique (CSE)",
-  "telephony_billingAccount_svaWallet_kyc_company_kind_EARL": "Entreprise agricole à responsabilité limitée",
+  "telephony_billingAccount_svaWallet_kyc_company_kind_EARL": "Entreprise agricole à responsabilité limité",
   "telephony_billingAccount_svaWallet_kyc_company_kind_FCP": "Fonds d'investissement sans personnalité morale (FCP)",
   "telephony_billingAccount_svaWallet_kyc_company_kind_FI": "Fonds d'investissement avec personnalité morale",
   "telephony_billingAccount_svaWallet_kyc_company_kind_FOUNDATION": "Fondation",
@@ -23,14 +23,14 @@
   "telephony_billingAccount_svaWallet_kyc_identity_company_description": "Description de l'activité",
 
   "telephony_billingAccount_svaWallet_kyc_identity_company_address_street_number": "Numéro de voie",
-  "telephony_billingAccount_svaWallet_kyc_identity_company_address_street_number_extra": "Complément (Optionnel)",
+  "telephony_billingAccount_svaWallet_kyc_identity_company_address_street_number_extra": "Complément",
   "telephony_billingAccount_svaWallet_kyc_identity_company_address_street_type": "Type de voie",
   "telephony_billingAccount_svaWallet_kyc_identity_company_address_street_name": "Nom de rue",
-  "telephony_billingAccount_svaWallet_kyc_identity_company_address_address_extra": "Complément (Optionnel)",
+  "telephony_billingAccount_svaWallet_kyc_identity_company_address_address_extra": "Complément",
   "telephony_billingAccount_svaWallet_kyc_identity_company_representative_postcode_residence": "Code postal",
-  "telephony_billingAccount_svaWallet_kyc_identity_company_address_cedex": "Cedex (Optionnel)",
+  "telephony_billingAccount_svaWallet_kyc_identity_company_address_cedex": "Cedex",
   "telephony_billingAccount_svaWallet_kyc_identity_representative_city_residence": "Ville",
-  "telephony_billingAccount_svaWallet_kyc_identity_representative_address_urban_district": "Arrondissement (Optionnel)",
+  "telephony_billingAccount_svaWallet_kyc_identity_representative_address_urban_district": "Arrondissement",
   "telephony_billingAccount_svaWallet_kyc_identity_representative_country_residence": "Pays",
 
   "telephony_billingAccount_svaWallet_kyc_identity_representative_title": "Contact de l'éditeur",
@@ -48,7 +48,7 @@
   "telephony_billingAccount_svaWallet_kyc_identity_beneficiaries_representativeIsBeneficiary": "Mon représentant est bénéficiaire",
 
   "telephony_billingAccount_svaWallet_kyc_identity_requirements": "Je certifie être l’éditeur des contenus des numéros SVA",
-  "telephony_billingAccount_svaWallet_kyc_identity_requirements_reseller": " Je certifie être revendeur de numéro SVA et certifie connaître et appliquer les obligations à mes propres clients",
+  "telephony_billingAccount_svaWallet_kyc_identity_requirements_reseller": " Je certifie être revendeur de numéro SVA et certifie connaitre et appliquer les obligations à mes propres clients",
   "telephony_billingAccount_svaWallet_kyc_identity_submit_label": "Etape suivante",
   "telephony_billingAccount_svaWallet_kyc_identity_submit_lemonway": "LemonWay",
   "telephony_billingAccount_svaWallet_kyc_identity_error": "Une erreur est survenue lors de la sauvegarde de vos informations : {{ errorMessage }}"

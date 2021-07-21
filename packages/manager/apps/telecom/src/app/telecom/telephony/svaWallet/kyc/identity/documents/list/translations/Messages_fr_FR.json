@@ -20,7 +20,7 @@
 
   "telephony_billingAccount_svaWallet_kyc_documents_type_title": "Pièces jointe à fournir",
   "telephony_billingAccount_svaWallet_kyc_documents_name_title": "Nom du document",
-  "telephony_billingAccount_svaWallet_kyc_documents_status_title": "Statut",
+  "telephony_billingAccount_svaWallet_kyc_documents_status_title": "Status",
   "telephony_billingAccount_svaWallet_kyc_documents_actions_title": "Actions",
   "telephony_billingAccount_svaWallet_kyc_documents_actions_upload": "Télécharger",
   "telephony_billingAccount_svaWallet_kyc_documents_actions_update": "Mettre à jour",
@@ -32,6 +32,5 @@
   "telephony_billingAccount_svaWallet_kyc_documents_status_PENDING": "En cours de validation",
   "telephony_billingAccount_svaWallet_kyc_documents_status_REJECTED": "Invalide",
   "telephony_billingAccount_svaWallet_kyc_documents_status_UP_TO_DATE": "Valide",
-  "telephony_billingAccount_svaWallet_kyc_documents_status_WAITING_FOR_UPLOAD": "En attente d'envoi",
-  "telephony_billingAccount_svaWallet_kyc_documents_maxsize_warning": "jpeg,jpg,png,pdf.(Taille max: 10Mo)"
+  "telephony_billingAccount_svaWallet_kyc_documents_status_WAITING_FOR_UPLOAD": "En attente d'envoi"
 }

@@ -32,7 +32,7 @@
     </li>
 </ul>
 
-<div class="oui-datagrid-responsive pb-5">
+<div class="oui-datagrid-responsive">
     <telephony-sva-wallet-kyc-identity-documents-list
         data-ng-if="$ctrl.documents.length"
         documents="$ctrl.documents"
@@ -47,7 +47,6 @@
         variant="primary"
         disabled="!$ctrl.uploadsCompleted"
         data-on-click="$ctrl.goToBillingAccount()"
-        class="mt-4"
     >
         <span
             data-translate="telephony_billingAccount_svaWallet_kyc_documents_back_to_dashboard"

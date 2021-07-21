@@ -16,7 +16,7 @@
 
         <p>
             <span
-                data-translate="{{:: 'telephony_billingAccount_svaWallet_kyc_documents_type_' + $ctrl.document.type }}"
+                data-translate="{{:: 'telephony_billingAccount_svaWallet_kyc_documents_nature_' + $ctrl.document.nature }}"
             ></span>
 
             <span data-ng-if="$ctrl.document.beneficiary">
@@ -28,7 +28,6 @@
         <oui-field
             label="{{:: 'telephony_billingAccount_svaWallet_kyc_identity_document_document_upload_label' | translate : { confirmationCode: $ctrl.confirmationCode} }}"
             size="auto"
-            help-text="{{:: 'telephony_billingAccount_svaWallet_kyc_documents_maxsize_warning' | translate }}"
         >
             <oui-file
                 disabled="$ctrl.disabled"

@@ -11,11 +11,10 @@ import { buildEnumList } from '../../../sva-wallet.constants';
 
 export default class BeneficiariesController {
   /* @ngInject */
-  constructor($translate, $attrs, $uibModal, $scope) {
+  constructor($translate, $attrs, $uibModal) {
     this.$translate = $translate;
     this.$attrs = $attrs;
     this.$uibModal = $uibModal;
-    this.$scope = $scope;
   }
 
   $onInit() {
@@ -26,7 +25,10 @@ export default class BeneficiariesController {
       this.editable = true;
     }
 
-    this.canAddBeneficiaries = this.checkBeneficiaries();
+    this.canAddBeneficiaries = this.editable
+      ? this.beneficiaries.length + (this.representativeIsBeneficiary ? 1 : 0) <
+        MAX_BENEFICIARIES
+      : false;
 
     if (this.editable && this.countryEnum) {
       this.countriesValues = buildEnumList(
@@ -35,20 +37,6 @@ export default class BeneficiariesController {
         this.$translate,
       );
     }
-
-    this.$scope.$watch(
-      () => this.representativeIsBeneficiary,
-      () => {
-        this.canAddBeneficiaries = this.checkBeneficiaries();
-      },
-    );
-  }
-
-  checkBeneficiaries() {
-    return this.editable
-      ? this.beneficiaries.length + (this.representativeIsBeneficiary ? 1 : 0) <
-          MAX_BENEFICIARIES
-      : false;
   }
 
   displaySuccessMessage(type) {
@@ -87,7 +75,6 @@ export default class BeneficiariesController {
   addBeneficiary() {
     this.openBeneficiaryForm({}, 'add', (beneficiary) => {
       this.beneficiaries = [...this.beneficiaries, beneficiary];
-      this.canAddBeneficiaries = this.checkBeneficiaries();
     });
   }
 
@@ -116,7 +103,6 @@ export default class BeneficiariesController {
     modalInstance.result
       .then(() => {
         this.beneficiaries.splice(this.beneficiaries.indexOf(beneficiary), 1);
-        this.canAddBeneficiaries = this.checkBeneficiaries();
         this.displaySuccessMessage('delete');
       })
       .catch(() => {
