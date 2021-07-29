@@ -31,12 +31,12 @@
             ></p>
         </oui-message>
 
-        <oui-message data-type="warning">
+        <oui-message
+            data-type="warning"
+            data-ng-if="$ctrl.isSvaWalletFeatureAvailable && $ctrl.isSpecialNumber"
+        >
             <p
                 data-translate="telephony_alias_administration_terminate_sva_warning"
-            ></p>
-            <p
-                data-translate="telephony_alias_administration_terminate_sva_warning_guarantee"
             ></p>
 
             <a class="oui-link_icon" data-ng-href="{{$ctrl.svaWalletLink}}">

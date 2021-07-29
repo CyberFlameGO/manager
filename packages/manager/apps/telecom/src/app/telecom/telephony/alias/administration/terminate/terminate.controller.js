@@ -1,7 +1,7 @@
 import confirmTemplate from './confirm/confirm.html';
 import controller from './confirm/confirm.controller';
 
-export default class TerminateController {
+export default /* @ngInject */ class TerminateController {
   /* @ngInject */
   constructor(
     $q,
@@ -27,7 +27,7 @@ export default class TerminateController {
     this.isLoading = true;
     this.$q
       .all({
-        reasons: this.getTerminationReasons(),
+        reason: this.getTerminationReasons(),
         task: this.getTerminationTask(),
         number: this.getNumber(),
         isSpecialNumber: this.tucVoipServiceAlias.isSpecialNumber({
@@ -35,8 +35,8 @@ export default class TerminateController {
           serviceName: this.serviceName,
         }),
       })
-      .then(({ reasons, task, number, isSpecialNumber }) => {
-        this.reasonEnum = reasons;
+      .then(({ reason, task, number, isSpecialNumber }) => {
+        this.reasonEnum = reason;
         this.task = task;
         this.number = number;
         this.isSpecialNumber = isSpecialNumber;
