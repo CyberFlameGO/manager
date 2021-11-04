@@ -3,7 +3,6 @@ import find from 'lodash/find';
 import forEach from 'lodash/forEach';
 import head from 'lodash/head';
 import map from 'lodash/map';
-import pick from 'lodash/pick';
 
 import { TELEPHONY_NUMBER_OFFER } from '../order-alias.constant';
 
@@ -169,49 +168,28 @@ export default /* @ngInject */ function TelecomTelephonyAliasOrderSpecialCtrl(
    */
   this.order = function order() {
     this.loading.order = true;
-    const fields = [
-      'firstname',
-      'name',
-      'email',
-      'socialNomination',
-      'legalform',
-      'siret',
-      'streetName',
-      'streetType',
-      'zip',
-      'cedex',
-      'range',
-      'typology',
-      'country',
-      'city',
-      'adressExtra',
-      'retractation',
-      'displayUniversalDirectory',
-      'pool',
-      'description',
-    ];
-    const form = pick(this.form, fields);
-    const companyKind = form.legalform;
-    const legalForm = () => {
-      if (['UE_UNLISTED_COMPANY', 'UNLISTED_COMPANY'].includes(companyKind)) {
-        return 'corporation';
-      }
 
-      if (companyKind === 'MICRO_ENTERPRISE') {
-        return 'individual';
-      }
-
-      if (
-        ['CRAFTSMAN', 'CSE', 'EARL', 'FCP', 'FI', 'FOUNDATION'].includes(
-          companyKind,
-        )
-      ) {
-        return 'other';
-      }
-
-      return companyKind.toLowerCase();
+    const wallet = { ...self.wallet };
+    const form = {
+      firstname: wallet.representative.firstname,
+      email: wallet.representative.email,
+      socialNomination: wallet.company.name,
+      legalform: 'corporation',
+      siret: wallet.company.identificationNumber,
+      streetName: wallet.representative.addressOfResidence.streetName,
+      streetType: wallet.representative.addressOfResidence.streetType,
+      zip: wallet.representative.postcodeOfResidence,
+      cedex: wallet.representative.addressOfResidence.cedex,
+      range: this.form.range,
+      typology: this.form.typology,
+      country: wallet.representative.countryOfResidence.toLowerCase(),
+      city: wallet.representative.addressOfResidence.cityOfResidence,
+      addressExtra: wallet.representative.addressOfResidence.addressExtra,
+      retractation: this.form.retractation,
+      displayUniversalDirectory: this.form.displayUniversalDirectory,
+      pool: this.form.pool,
+      description: this.form.description,
     };
-    form.legalform = legalForm();
 
     if (form.pool === 1) {
       delete form.pool;
@@ -296,7 +274,7 @@ export default /* @ngInject */ function TelecomTelephonyAliasOrderSpecialCtrl(
       value: elt.value,
     }));
 
-    const defaultForm = {
+    self.form = {
       amount: find(self.preAmount, {
         value: 1,
       }),
@@ -305,24 +283,6 @@ export default /* @ngInject */ function TelecomTelephonyAliasOrderSpecialCtrl(
       pool: 1,
       legalform: 'corporation',
       displayUniversalDirectory: false,
-    };
-    const wallet = { ...self.wallet };
-
-    self.form = {
-      ...defaultForm,
-      firstname: wallet.representative.firstname,
-      name: wallet.representative.lastname,
-      email: wallet.representative.email,
-      socialNomination: wallet.company.name,
-      legalform: wallet.company.kind.toUpperCase(),
-      siret: wallet.company.identificationNumber,
-      streetName: wallet.representative.addressOfResidence.streetName,
-      streetType: wallet.representative.addressOfResidence.streetType,
-      zip: wallet.representative.postcodeOfResidence,
-      cedex: wallet.representative.addressOfResidence.cedex,
-      country: 'fr',
-      city: wallet.representative.addressOfResidence.cityOfResidence,
-      addressExtra: wallet.representative.addressOfResidence.addressExtra,
     };
 
     return TelecomTelephonyBillingAccountOrderAliasService.getUser()
