@@ -103,6 +103,10 @@ export default /* @ngInject */ ($stateProvider) => {
               get($transition$.params(), 'cartId'),
             ),
 
+      voucher: /* @ngInject */ ($transition$) => {
+        return $transition$.params().voucher;
+      },
+
       eligibility: /* @ngInject */ ($transition$, pciProjectNew) =>
         pciProjectNew
           .checkEligibility(get($transition$.params(), 'voucher'))
@@ -120,6 +124,7 @@ export default /* @ngInject */ ($stateProvider) => {
       model: /* @ngInject */ (
         cart,
         checkVoucherValidity,
+        voucher,
         eligibility,
         ovhPaymentMethodHelper,
       ) => {
@@ -139,7 +144,8 @@ export default /* @ngInject */ ($stateProvider) => {
           hds: cart.hdsItem !== undefined,
           paymentMethod: null,
           voucher: new PciVoucher({
-            value: get(cart, 'projectItem.voucherConfiguration.value'),
+            value:
+              voucher || get(cart, 'projectItem.voucherConfiguration.value'),
           }),
         };
 
