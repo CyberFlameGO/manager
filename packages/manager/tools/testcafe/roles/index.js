@@ -16,3 +16,8 @@ export async function userRoleDisconnect(config) {
   const page = new AuthLoginPage(config);
   await page.logout();
 }
+
+export default {
+  userRole,
+  userRoleDisconnect,
+};

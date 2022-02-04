@@ -1,10 +1,15 @@
-import config from '../../../../../tools/testcafe/config';
-import {
-  userRole,
-  userRoleDisconnect,
-} from '../../../../../tools/testcafe/roles';
-import HubPage from '../../../../../tools/testcafe/pages/hub/hubPage';
+import { config, pages, roles } from '@ovh-ux/testcafe-manager';
 
+// import config from '@ovh-ux/@ovh-ux/testcafe-manager';
+// import config from '../../../../../tools/testcafe/config';
+// import {
+//   userRole,
+//   userRoleDisconnect,
+// } from '../../../../../tools/testcafe/roles';
+// import HubPage from '../../../../../tools/testcafe/pages/hub/hubPage';
+
+const { HubPage } = pages.hub;
+const { userRole, userRoleDisconnect } = roles;
 const user = userRole(config);
 
 fixture('check hub page')
