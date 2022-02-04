@@ -8,7 +8,11 @@ import ApplicationContext, { useShell } from '@/context';
 import HamburgerMenu from './hamburger-menu';
 import UserAccountMenu from './user-account-menu';
 
-function Header({ isSidebarExpanded, onHamburgerMenuClick, onUserAccountMenuToggle }) {
+function Header({
+  isSidebarExpanded,
+  onHamburgerMenuClick,
+  onUserAccountMenuToggle,
+}) {
   const shell = useShell();
   const [userLocale, setUserLocale] = useState(
     shell.getPlugin('i18n').getLocale(),
