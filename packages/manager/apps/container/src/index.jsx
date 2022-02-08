@@ -19,7 +19,7 @@ initSso();
 shellApi.initShell().then((shell) => {
   const environment = shell.getPlugin('environment').getEnvironment();
   const locale = environment.getUserLocale();
-  const useNavReshuffle = false; // @TODO fetch from preferences
+  const useNavReshuffle = true; // @TODO fetch from preferences
   i18n
     .use(initReactI18next)
     .use(Backend)
@@ -29,7 +29,7 @@ shellApi.initShell().then((shell) => {
       ns: [], // namespaces to load by default
       backend: {
         // path construction for async load, ns: namespace, lng: locale
-        loadPath: './translations/{{ns}}/Messages_{{lng}}.json',
+        loadPath: (lng, ns) => `./translations/${ns}/Messages_${lng}.json`,
       },
     });
   ReactDOM.render(
