@@ -19,7 +19,7 @@ initSso();
 shellApi.initShell().then((shell) => {
   const environment = shell.getPlugin('environment').getEnvironment();
   const locale = environment.getUserLocale();
-  const useNavReshuffle = true; // @TODO fetch from preferences
+  const useNavReshuffle = false; // @TODO fetch from preferences
   i18n
     .use(initReactI18next)
     .use(Backend)
