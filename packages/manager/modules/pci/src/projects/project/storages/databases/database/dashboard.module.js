@@ -23,6 +23,7 @@ import replications from './replications';
 import currentQueries from './current-queries';
 import pools from './pools';
 import queryStatistics from './query-statistics';
+import connectors from './connectors';
 
 const moduleName = 'ovhManagerPciStoragesDatabase';
 
@@ -49,6 +50,7 @@ angular
     serviceIntegration,
     replications,
     currentQueries,
+    connectors,
   ])
   .config(routing)
   .component('ovhManagerPciProjectDatabase', component)
