@@ -525,6 +525,7 @@ export default /* @ngInject */
     );
   };
   $scope.displayOrganisation = function displayOrganisation() {
+    trackClick('manage-organisation');
     goToOrganisation().then(() =>
       $scope.$broadcast('ips.organisation.display'),
     );
@@ -595,6 +596,7 @@ export default /* @ngInject */
 
   $scope.exportCsv = function exportCsv(ipsList) {
     trackPage('export-csv');
+    trackClick('export-csv');
     $scope.setAction('ip/export-csv/ip-ip-export-csv', { ipsList });
   };
 
@@ -605,7 +607,7 @@ export default /* @ngInject */
   };
 
   $scope.orderIPFO = function orderIPFO() {
-    trackPage('order-additional-ip');
+    trackClick('order-additional-ip');
     $scope.setAction('ip/legacyOrder/ip-ip-legacyOrder');
   };
 

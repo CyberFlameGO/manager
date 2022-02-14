@@ -24,8 +24,10 @@ export default /* @ngInject */ ($stateProvider) => {
         }),
       goToAgoraOrder: /* @ngInject */ ($state) => () =>
         $state.go('app.ip.dashboard.agora-order'),
-      goToByoipConfiguration: /* @ngInject */ ($state) => () =>
-        $state.go('app.ip.byoip'),
+      goToByoipConfiguration: /* @ngInject */ ($state, trackClick) => () => {
+        trackClick('bring-your-own-ip');
+        return $state.go('app.ip.byoip');
+      },
       breadcrumb: () => null,
       hideBreadcrumb: () => true,
       orderIpAvailable: /* @ngInject */ (coreConfig, ovhFeatureFlipping) => {
