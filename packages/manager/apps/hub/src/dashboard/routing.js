@@ -19,7 +19,7 @@ const getProducts = (services, order, catalog) => {
 
 export default /* @ngInject */ ($stateProvider, $urlRouterProvider) => {
   $stateProvider.state('app.dashboard', {
-    url: '/?expand',
+    url: '/?expand&livechat',
     params: {
       expand: {
         value: null,
@@ -48,6 +48,8 @@ export default /* @ngInject */ ($stateProvider, $urlRouterProvider) => {
           expand,
         }),
       expand: /* @ngInject */ ($transition$) => $transition$.params().expand,
+      showLivechat: /* @ngInject */ ($transition$) =>
+        $transition$.params().livechat === 'open',
       hideBreadcrumb: () => true,
       breadcrumb: /* @ngInject */ ($translate) =>
         $translate.instant('manager_hub_dashboard'),
